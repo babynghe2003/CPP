@@ -1,62 +1,70 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define pb push_back
-#define pf push_front
-#define db double
-#define X first
-#define Y second
-#define fast ios_base::sync_with_stdio(false);cout.tie(NULL);cin.tie(NULL);
-#define all(x) (x).begin(),(x).end()
-#define nl '\n'
-int L[1000000];
- 
-const ll M=1e9+7;
-void indef(){
-	#ifndef ONLINE_JUDGE
-		freopen("input.txt","r",stdin);
-		freopen("output.txt","w",stdout);
-	#endif
+
+
+ll multiply_modulo(ll A, ll B, ll M)
+{
+    if (B == 0)
+        return 0;
+
+    ll T = multiply_modulo(A, B / 2, M) % M;
+
+    if (B & 1)
+        return ((T + T) % M + A % M) % M;
+    else
+        return (T + T) % M;
 }
-//tt=1 neu ko co truy van
-void solve(){
-	int n;
-	cin >> n;
-	vector<ll> a(n);
-	vector<ll> b(n);
-	ll t1=0,t2=0,t3=0;
-	for(int i=0;i<n;i++){
-		cin >> a[i];
-		b[i]=a[i]*a[i];
-        L[a[i]]++;
+
+void solve() {
+	ll n,m;
+	string s = "";
+	cin >> n >> m;
+	for (int i = 0; i<n; i++){
+		char c;
+		cin >> c;
+		s+=c;
 	}
-	sort(all(a));
-	sort(all(b));
-	for(int i=0;i<n-2;i++){
-		int k=i+2,r=i+2,tmp=i+2;
-		for(int j=i+1;j<n-1;j++){
-			while(k<n && a[i]+a[j]>a[k]) k++;
-			if(r<=j) r=j+1;
-			while(b[i]+b[j]>b[r] && r<k) r++;
-			t1+=r-j-1;
-			tmp=r;
-			// while(b[i]+b[j]==b[r]){
-			// 	t2++;
-			// 	r++;
-			// }
-            if (b[i]+b[j] == b[r]){
-                t2+=L[a[r]];
-                r+=L[a[r]];
-            } 
-			t3+=k-r;
-			r=tmp;		
+	string k;
+	cin >> k;
+	string temp = s;
+	while(s.size()<=k.size()){
+		s=s+temp;
+	}
+
+	for (int i = 0; i<k.size(); i++){
+		s+=s[i];
+	}
+
+	int i = 0;
+	std::size_t found;
+	long long res = 1;
+	while (i<n){
+		found = s.find(k,i);
+		if (found!=std::string::npos && found<n){
+			// std::cout << "first 'needle' found at: " << found+1 << '\n';
+			res = multiply_modulo(res,found+1,m);
+			i=found+1;
+		}else{
+			break;
 		}
 	}
-	cout << t1 << " " << t2 << " " << t3;
+	cout << res;
 }
-int main(){
-	// fast;
-	// indef();
-	int tt=1;
-	while(tt--) solve();
+ 
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    // indef();
+    
+    int t = 1;
+    // cin >> t;
+    
+    while (t--) {
+        solve();
+    }
+    
+    return 0;
 }
+// 1<<n = 2^n
