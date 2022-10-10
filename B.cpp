@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
+#define MAXN 1010
+#define MOD 1000000007
 
 
 ll multiply_modulo(ll A, ll B, ll M)
@@ -17,39 +19,29 @@ ll multiply_modulo(ll A, ll B, ll M)
 }
 
 void solve() {
-	ll n,m;
-	string s = "";
-	cin >> n >> m;
-	for (int i = 0; i<n; i++){
-		char c;
-		cin >> c;
-		s+=c;
-	}
-	string k;
-	cin >> k;
-	string temp = s;
-	while(s.size()<=k.size()){
-		s=s+temp;
-	}
-
-	for (int i = 0; i<k.size(); i++){
-		s+=s[i];
-	}
-
-	int i = 0;
-	std::size_t found;
-	long long res = 1;
-	while (i<n){
-		found = s.find(k,i);
-		if (found!=std::string::npos && found<n){
-			// std::cout << "first 'needle' found at: " << found+1 << '\n';
-			res = multiply_modulo(res,found+1,m);
-			i=found+1;
-		}else{
-			break;
-		}
-	}
-	cout << res;
+	ll comb[1010][1010];
+    comb[0][0] = 1;
+    for (int i = 1; i < MAXN; i++) {
+      comb[i][0] = 1;
+      for (int j = 1; j <= i; j++) {
+        comb[i][j] = (comb[i-1][j] + comb[i-1][j-1]) % mod;
+      }
+    }
+    
+    int K;
+	cin >> K;
+    int color[K];
+    for (int i = 0; i < K; i++)
+	 cin >> color[i];
+    
+    long res = 1;
+    int total = 0;
+    for (int i = 0; i < K; i++) {
+      res = (res * comb[total + color[i] - 1][color[i] - 1]) % mod;
+      total += color[i];
+    }
+    
+    cout << res;
 }
  
 int main() {

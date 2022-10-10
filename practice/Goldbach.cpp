@@ -1,8 +1,16 @@
 #include <iostream>
 #include <stdio.h>
 using namespace std;
+
+void indef(){
+	#ifndef ONLINE_JUDGE
+		freopen("input.txt","r",stdin);
+		freopen("output.txt","w",stdout);
+	#endif
+}  
  
 int main() {
+  indef();
   int soluong;
    cin >> soluong;
    int N, A[soluong+1];
@@ -13,13 +21,13 @@ int main() {
   N=N+10;
    
   bool check[N + 1];
-  // Kh?i t?o t?t c? các s? [2...N] ð?u là s? nguyên t?
+  // Kh?i t?o t?t c? cï¿½c s? [2...N] ï¿½?u lï¿½ s? nguyï¿½n t?
   for (int i = 2; i <= N; i++) {
     check[i] = true;
   }
  
-  // Thu?t toán sàng nguyên t?
-  // N?u m?t s? là s? nguyên t?, th? t?t c? các b?i c?a nó không ph?i s? nguyên t?
+  // Thu?t toï¿½n sï¿½ng nguyï¿½n t?
+  // N?u m?t s? lï¿½ s? nguyï¿½n t?, th? t?t c? cï¿½c b?i c?a nï¿½ khï¿½ng ph?i s? nguyï¿½n t?
   for (int i = 2; i <= N; i++) {
     if (check[i] == true) {
       for (int j = 2 * i; j <= N; j += i) {
@@ -28,7 +36,7 @@ int main() {
     }
   }
   int p1, p2, j;
-  // In ra các s? là s? nguyên t?
+  // In ra cï¿½c s? lï¿½ s? nguyï¿½n t?
   for (int i=1; i<=soluong; i++){
   	j=A[i]-1;
   	while ((check[j]==false) && (j<=N)){
