@@ -1,34 +1,33 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#define ll long long
 using namespace std;
-
-int q;
-int main()
-{
-	ios::sync_with_stdio(false);
-	cin >> q;
-	while (q--){
-		int n;
-		cin >> n;
-		int a[n+1];
-		for(int i = 0; i<n; i++){
-			cin >> a[i];
-		}
-		int max = a[n-1] - a[0];
-		for(int i = 0; i<n; i++){
-			if (a[n-1]-a[i]>max){
-				max = a[n-1]-a[i];
-			}
-			
-			if (a[i]-a[0]>max){
-				max = a[i]-a[0];
-			}
-			if (i<n-1)
-				if (a[i]-a[i+1]>max){
-					max = a[i]-a[i+1];
-				}
-		}
-		cout << max << endl;
+struct val{
+ ll index;
+ ll value;
+};
+void solve() {
+	 ll n,x;
+	 cin >> n >> x;
+	val a[n];
+	for (int i = 0; i < n; i++){
+		cin >> a[i].value;
+		a[i].index = i;
 	}
-	
+	sort(a,a+n, [](val x, val y){
+			return x.value < y.value;
+	});
+
+
+
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int t = 1;
+	//cin >> t;
+	while (t--) {
+		solve();
+	}
 	return 0;
 }

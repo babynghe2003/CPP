@@ -35,7 +35,6 @@ void solve()
         for (int j = 1; j <= i; j++)
         {
             L[i][j] = (L[i - 1][j] + L[i - 1][j - 1]) % MOD;
-            cout << L[i][j] << " ";
         }
         cout << endl;
     }

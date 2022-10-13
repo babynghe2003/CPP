@@ -11,8 +11,6 @@ void indef(){
 	#endif
 }
 
-
-
 void solve() {
     cout << fixed << setprecision(15);
 
