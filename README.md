@@ -195,6 +195,7 @@ for (auto const& [key, val] : symbolTable)
 ### queude have top max
 ```cpp
 priority_queue<int> a, b;
+vector<int,greater<>()>
 ```
 ### DSU
 ```cpp

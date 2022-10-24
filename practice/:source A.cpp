@@ -11,15 +11,14 @@ void indef()
 
 void solve()
 {
-	int m;
-	cin >> m;
-	int a[m];
-	for (int i = 0; i < m; i++)
+	int n;
+	cin >> n;
+	int a[n];
+	for (int i = 0; i < n; i++)
 	{
 		cin >> a[i];
 	}
-	cout << m;
-	
+	cout << n;
 
 }
 
@@ -30,10 +29,10 @@ int main()
 
 	indef();
 
-	int ab;
-	cin >> ab;
+	int t;
+	cin >> t;
 
-	while (ab--)
+	while (t--)
 	{
 		solve();
 	}

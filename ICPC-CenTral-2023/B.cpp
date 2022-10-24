@@ -7,30 +7,24 @@ void indef(){
     freopen("output.txt","w",stdout);
 #endif
 }
-
-ll a[3000],L[3000][3000];
+int L[2000005];
 
 void solve() {
-
     int n;
     cin >> n;
-
-    for (int i = 0; i < n; ++i)
-    {
-        cin >> a[i];
-        L[i][i] = a[i];
-        for (int j = i - 1; j >= 0; --j)
-            L[j][i] = max(a[j] - L[j + 1][i], a[i] - L[j][i - 1]);
+    int A[n];
+    for (int i = 0; i < n; i++) {
+        int c;
+        cin >> c;
+        L[c]++;
     }
-    // for (int i = 0; i < n; i++){
-    //     for (int j = 0; j < n; j++){
-    //         cout << L[i][j] << " ";
-    //     }
-    //     cout << endl;
-    // }
-
-    cout << L[0][n - 1];
-
+    // count triplets with sum divisible by 5
+    ll cou = 0;
+    for (int i = 5; i < 6000005; i+=5){
+        
+    }
+    int count = 0;
+    
 }
  
 int main() {

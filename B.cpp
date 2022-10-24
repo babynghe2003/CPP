@@ -2,20 +2,13 @@
 using namespace std;
 #define ll long long
 #define MAXN 1010
-#define MOD 1000000007
+#define mod 1000000007
 
-
-ll multiply_modulo(ll A, ll B, ll M)
-{
-    if (B == 0)
-        return 0;
-
-    ll T = multiply_modulo(A, B / 2, M) % M;
-
-    if (B & 1)
-        return ((T + T) % M + A % M) % M;
-    else
-        return (T + T) % M;
+void indef(){
+	#ifndef ONLINE_JUDGE
+		freopen("input.txt","r",stdin);
+		freopen("output.txt","w",stdout);
+	#endif
 }
 
 void solve() {
@@ -48,7 +41,7 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    // indef();
+    indef();
     
     int t = 1;
     // cin >> t;

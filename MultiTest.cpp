@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
+#define PI 3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481117450284102701938
+#define MOD 1e9+7
 
 void indef(){
 	#ifndef ONLINE_JUDGE
@@ -18,7 +20,7 @@ void solve() {
  
 int main() {
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nullptr); cout.tie(nullptr);
 
     indef();
     
@@ -28,8 +30,6 @@ int main() {
     while (t--) {
         solve();
     }
-
-    // solve();
     
     return 0;
 }
