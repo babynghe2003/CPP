@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>        
+#include <bits/stdc++.h>
 using namespace std;
 #define ll long long
 void indef(){
@@ -7,10 +7,6 @@ void indef(){
 	freopen("output.txt","w",stdout);
 #endif
 }
-
-struct Matrix{
-	
-};
 
 void solve() {
 	int n;

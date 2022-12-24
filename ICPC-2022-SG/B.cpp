@@ -1,6 +1,7 @@
-#include <bits/stdc++.h>        
+#include <bits/stdc++.h>
 using namespace std;
 #define ll long long
+
 void indef(){
 #ifndef ONLINE_JUDGE
 	freopen("input.txt","r",stdin);
@@ -8,22 +9,21 @@ void indef(){
 #endif
 }
 
-struct Matrix{
-	
-};
-
 void solve() {
-	int n;
-	cin >> n;
-	cout << n;
-
+	int a[7];
+	for (int i = 0; i < 7; ++i)
+	{
+		cin>>a[i];
+	}
+	sort(a,a+7);
+	cout << a[0] << " " << a[1] << " " << a[6]-a[0]-a[1] << endl;
 }
  
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr);
+	// ios::sync_with_stdio(false);
+	// cin.tie(nullptr);
 
-	indef();
+	//indef();
 
 	int t;
 	cin >> t;

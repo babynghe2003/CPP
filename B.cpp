@@ -12,29 +12,15 @@ void indef(){
 }
 
 void solve() {
-	ll comb[1010][1010];
-    comb[0][0] = 1;
-    for (int i = 1; i < MAXN; i++) {
-      comb[i][0] = 1;
-      for (int j = 1; j <= i; j++) {
-        comb[i][j] = (comb[i-1][j] + comb[i-1][j-1]) % mod;
-      }
-    }
-    
-    int K;
-	cin >> K;
-    int color[K];
-    for (int i = 0; i < K; i++)
-	 cin >> color[i];
-    
-    long res = 1;
-    int total = 0;
-    for (int i = 0; i < K; i++) {
-      res = (res * comb[total + color[i] - 1][color[i] - 1]) % mod;
-      total += color[i];
-    }
-    
-    cout << res;
+	ll n;
+	cin >> n;
+	set<ll> set;
+	for (int i = 0; i <n; i++){
+		ll c;
+		cin >> c;
+		set.insert(c);
+	}
+	cout << set.size();
 }
  
 int main() {

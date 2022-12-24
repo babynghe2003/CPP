@@ -115,5 +115,5 @@
     "valarray": "cpp",
     "variant": "cpp"
   },
-  "C_Cpp.errorSquiggles": "Enabled"
+  "C_Cpp.errorSquiggles": "Disable"
 }
